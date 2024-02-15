@@ -1,90 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mengajak Balikan</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            margin-top: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polling</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Mengajak Balikan</h1>
-        <form id="invitationForm">
-            <label for="nama">Nama Anda:</label>
-            <input type="text" id="nama" name="nama" required>
-            <label for="pertanyaan">Apakah kamu masih menyukai saya? (y/n)</label>
-            <input type="text" id="pertanyaan" name="pertanyaan" required>
-            <input type="submit" value="Kirim">
-        </form>
-    </div>
-
-    <script>
-        document.getElementById('invitationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            var nama = formData.get('nama');
-            var pertanyaan = formData.get('pertanyaan');
-            
-            if (pertanyaan.toLowerCase() === 'y') {
-                var mauPacar = prompt('Apakah kamu mau jadi pacar saya? (y/n)').toLowerCase();
-                if (mauPacar === 'y') {
-                    alert('Terima kasih banyak!');
-                } else if (mauPacar === 'n') {
-                    alert('pokok nya wajib mau!! >.<');
-                } else {
-                    alert('Mohon maaf, jawaban tidak valid.');
-                }
-            } else if (pertanyaan.toLowerCase() === 'n') {
-                alert('Wajib masih sayang ga boleh gak!!!');
-            } else {
-                alert('Mohon maaf, jawaban tidak valid.');
-            }
-        });
-    </script>
+  <div class="container">
+    <h1>Pilih Kubu Favoritmu</h1>
+    <form id="pollForm">
+      <label>
+        <input type="radio" name="kubu" value="danar">
+        Danar
+      </label>
+      <br>
+      <label>
+        <input type="radio" name="kubu" value="viba">
+        Viba
+      </label>
+      <br>
+      <label>
+        <input type="radio" name="kubu" value="wulan">
+        Wulan
+      </label>
+      <br>
+      <label>
+        <input type="radio" name="kubu" value="netral">
+        Netral
+      </label>
+      <br>
+      <label>
+        <input type="radio" name="kubu" value="golput">
+        Golput
+      </label>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+    <canvas id="pollChart"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
